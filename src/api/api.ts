@@ -1,8 +1,5 @@
 import axios from "axios";
-
-const API_URL = process.env.EXPO_PUBLIC_TMDB_BASE_URL;
-const API_KEY = process.env.EXPO_PUBLIC_TMDB_API_KEY;
-const ACCESS_TOKEN = process.env.EXPO_PUBLIC_TMDB_ACCESS_TOKEN;
+import { ACCESS_TOKEN, API_KEY, API_URL } from "../constants/api";
 
 export const api = axios.create({
 	baseURL: API_URL,
