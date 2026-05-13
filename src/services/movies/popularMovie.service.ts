@@ -6,7 +6,7 @@ export const getPopularMovie = async (): Promise<MovieResponse> => {
 		const res = await api.get<MovieResponse>("movie/popular");
 		return res.data;
 	} catch (error) {
-		console.error("Error: ", error);
+		console.error("Error while fetching popular movies: ", error);
 		throw error;
 	}
 };
@@ -21,7 +21,7 @@ export const getDiscoverMovie = async (genreId: number, page: number = 1): Promi
 		});
 		return res.data;
 	} catch (error) {
-		console.error("Error: ", error);
+		console.error("Error while fetching discover movies: ", error);
 		throw error;
 	}
 };

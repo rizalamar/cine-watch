@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
 });
 
 api.interceptors.response.use(
-	(res) => res.data,
+	(res) => res,
 	(error) => {
 		console.log(error);
 

@@ -1,10 +1,23 @@
 import "./global.css";
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
+import { useGenres } from "./src/hooks/useGenres";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
+	const { genres, loading, error } = useGenres();
 	return (
-		<View className="flex-1 items-center justify-center bg-white">
-			<Text className="text-xl font-bold text-blue-500">Welcome to Nativewind!</Text>
-		</View>
+		<SafeAreaProvider>
+			<View className="items-center justify-center flex-1 bg-white">
+				<FlatList
+					data={genres}
+					keyExtractor={(item) => item.id.toString()}
+					renderItem={(item) => (
+						<View>
+							<Text>{item.item.name}</Text>
+						</View>
+					)}
+				/>
+			</View>
+		</SafeAreaProvider>
 	);
 }
