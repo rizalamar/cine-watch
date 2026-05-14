@@ -16,7 +16,7 @@ const MovieCard = ({ movie }: Props) => {
 			className="flex-1 m-2 overflow-hidden bg-gray-800 shadow-lg rounded-xl"
 			onPress={() => router.push(`/movie-detail/${movie.id}`)}
 		>
-			<Image source={{ uri: imageUrl }} className="object-cover w-full h-64" resizeMode="cover" />
+			<Image source={{ uri: imageUrl }} className="object-cover w-full h-80" resizeMode="cover" />
 
 			<View className="p-3">
 				<Text className="text-sm font-bold text-white" numberOfLines={1}>

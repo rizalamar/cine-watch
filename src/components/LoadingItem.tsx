@@ -6,6 +6,8 @@ interface Props {
 }
 
 const LoadingItem = ({ loading }: Props) => {
+	if (!loading) return null;
+
 	return (
 		<View className="items-center justify-center py-6">
 			<ActivityIndicator size={"small"} color={"#3b82f6"} />
