@@ -1,9 +1,29 @@
 import { router } from "expo-router";
 import { useGenres } from "../src/hooks/useGenres";
-import { FlatList, View, Text, Pressable } from "react-native";
+import { FlatList, View, Text, Pressable, ActivityIndicator, TouchableOpacity } from "react-native";
 
 export default function GenreScreen() {
 	const { genres, loading, error, refresh } = useGenres();
+
+	if (loading) {
+		return (
+			<View className="items-center justify-center flex-1 bg-gray-900">
+				<ActivityIndicator size={"large"} color={"#fff"} />
+			</View>
+		);
+	}
+
+	if (error) {
+		return (
+			<View className="items-center justify-center flex-1 p-4 bg-gray-900">
+				<Text>{error}</Text>
+				<TouchableOpacity className="p-3 bg-red-500 rounded-lg" onPress={refresh}>
+					<Text className="text-white">Try Again</Text>
+				</TouchableOpacity>
+			</View>
+		);
+	}
+
 	return (
 		<View className="items-center justify-center flex-1 bg-white">
 			<FlatList
